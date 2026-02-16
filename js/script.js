@@ -9,4 +9,9 @@ const listEl = document.getElementById('numbers-list');
 const formEl = document.getElementById('answers-form');
 const inputEl = document.querySelectorAll('input')
 const messageEl = document.getElementById('message')
-console.log(inputEl);
+
+//funzione che genera un numero casuale tra 1 e 50
+function randomNumber() {
+  const number = Math.floor(Math.random() * 50) + 1;
+  return number;
+}
