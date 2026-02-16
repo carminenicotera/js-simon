@@ -15,3 +15,10 @@ function randomNumber() {
   const number = Math.floor(Math.random() * 50) + 1;
   return number;
 }
+
+//popolo l'array richiamando la funzione randomNumber
+const arrNumbers = [];
+for (let i = 0; i < 5; i++) {
+  const element = randomNumber();
+  arrNumbers.push(element);
+}
