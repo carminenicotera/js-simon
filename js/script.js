@@ -44,3 +44,31 @@ const intervalloId = setInterval(function() {
     countdownEl.innerText = timer--;
   }
 }, 1000)
+
+//Salvo i numeri, li confronto e mostro l'output finale
+formEl.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  //salvo in un array i numeri inseriti sall'utente
+  const arrayUtente = [];
+  for(let i = 0; i < 5; i++){
+    const element = Number(inputEl[i].value);
+    arrayUtente.push(element)
+  }
+
+  //controllo quali numeri che ha inserito l'utente sono presenti nell'array generato casualmente e li pusho in un nuovo array
+  const arrayIndovinati = [];
+  for (let i = 0; i < 5; i++) {
+    const element = arrayUtente[i];
+    if(arrNumbers.includes(element)) {
+      arrayIndovinati.push(element)
+    }
+  }
+
+  //output
+  if (arrayIndovinati.length > 0) {
+    messageEl.innerText = `Complimenti🥳, Hai indovinato ${arrayIndovinati.length} numeri`
+  } else {
+    messageEl.innerHTML = 'Non hai indovinato nessun numero😔'
+  }
+})
