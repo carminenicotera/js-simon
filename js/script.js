@@ -5,7 +5,7 @@
 //seleziono gli elementi dal dom
 const countdownEl = document.getElementById('countdown');
 const instructionsEl = document.getElementById('instructions')
-const listEl = document.getElementById('numbers-list');
+const listNumberEl = document.getElementById('numbers-list');
 const formEl = document.getElementById('answers-form');
 const inputEl = document.querySelectorAll('input')
 const messageEl = document.getElementById('message')
@@ -22,3 +22,25 @@ for (let i = 0; i < 5; i++) {
   const element = randomNumber();
   arrNumbers.push(element);
 }
+
+//inserisco l'array di numeri casuali nella lista saggiungendo uno spazio per separare i numeri
+listNumberEl.innerHTML = arrNumbers.join(' ');
+
+//imposto un countdown di 30 secondi, nascondo i numeri e infine faccio comparire il form
+let timer = 5;
+countdownEl.innerText = timer--;
+
+const intervalloId = setInterval(function() {
+  if(timer === 0) {
+    //termino l'esecuzione e stampo il messaggio
+    clearInterval(intervalloId);
+    countdownEl.innerHTML = 'Tempo esaurito!'
+
+    //nascondo i numeri e mostro il form
+    listNumberEl.classList.add('d-none');
+    formEl.classList.remove('d-none');
+    instructionsEl.innerHTML = 'Prova ad inserire tutti i numeri che ricordi!😎'
+  } else {
+    countdownEl.innerText = timer--;
+  }
+}, 1000)
