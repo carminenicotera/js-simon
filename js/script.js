@@ -27,7 +27,7 @@ for (let i = 0; i < 5; i++) {
 listNumberEl.innerHTML = arrNumbers.join(' ');
 
 //imposto un countdown di 30 secondi, nascondo i numeri e infine faccio comparire il form
-let timer = 30;
+let timer = 5;
 countdownEl.innerText = timer--;
 
 const intervalloId = setInterval(function() {
@@ -60,7 +60,7 @@ formEl.addEventListener('submit', function(e){
   const arrayIndovinati = [];
   for (let i = 0; i < 5; i++) {
     const element = arrayUtente[i];
-    if(arrNumbers.includes(element)) {
+    if(arrNumbers.includes(element) && !arrayIndovinati.includes(element)) {
       arrayIndovinati.push(element)
     }
   }
